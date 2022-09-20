@@ -65,6 +65,7 @@ public class TestBuggyAList {
                     int remove = L.removeLast();
                     int remove_B = B.removeLast();
                     //System.out.println(("L removed = " + remove + "   B removed = " + remove_B));
+                    //add test
                 }
             }
         }
