@@ -95,21 +95,5 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
 
 
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> L = new LinkedListDeque<>();
-        L.addFirst(2);
-        L.addFirst(3);
-        L.addFirst(4);
-        L.addLast(100);
-        L.addLast(101);
-        L.addLast(102);
-        L.addLast(103);
-        L.addLast(104);
-        L.removeFirst();
-        Object x = L.get(4);
-        //Object m = L.printDeque();
-        //System.out.println(m);
-        System.out.println(x);
 
-    }
 }
