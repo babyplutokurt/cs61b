@@ -1,9 +1,5 @@
 package deque;
 
-import net.sf.saxon.om.Item;
-
-import java.awt.desktop.AppReopenedEvent;
-
 public class LinkedListDeque<T> implements Deque<T>{
     public class ItemNode {
         public T item;
