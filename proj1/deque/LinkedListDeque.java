@@ -50,7 +50,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         rmNode.item = null;
         rmNode.next = null;
         rmNode.prev = null;
-        size = size - 1;
+        size -= 1;
         return rmItem;
     }
 
