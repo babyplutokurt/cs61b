@@ -98,8 +98,9 @@ public class BSTMap<K extends Comparable, V> implements Map61B {
         return x;
     }
 
-    public Node delete(){
-
+    public Object delete(K key) {
+        root = remove(root, key);
+        return root;
     }
 
     private Node remove(Node x, K key) {
@@ -109,12 +110,39 @@ public class BSTMap<K extends Comparable, V> implements Map61B {
         } else if (cmp > 0) {
             x.right = remove(x.right, key);
         }
-        if (x.size == 1) {
-            x = null;
-        } else if (x.size == 2) {
-            x = new Node()
+        // Now the x is the node we want to remove
+        // The code below remove x with 0 or 1 child only
+        else if (x.left == null) {
+            return x.right;
+        } else if (x.right == null) {
+            return x.left;
+        }
+        // Two children situation
+        // find the successor of the node we want to remove
+        // ToDo: find the smallest node key S in X.right,
+        //  1. change x(key, value) to S(key, value)
+        //  2. directly reformat pointing relationship
+        //
+        else {
+            x.right = swapSmallest(x.right, x);
+        }
+        x.size -= 1;
+        return x;
+    }
+
+    private Node swapSmallest(Node R, Node x) {
+        if (R.left == null) {
+            x.key = R.key;
+            x.value = R.value;
+            return R.right;
+        } else {
+            R.left = swapSmallest(R.left, x);
+            R.size -= 1;
+            return R;
         }
     }
+
+
     @Override
     public Set keySet() {
         throw new UnsupportedOperationException("Invalid operation for sorted list.");
